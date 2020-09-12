@@ -24,6 +24,8 @@ def get_optimal_value_0(capacity, weights, values):
         elif units_weights_dict[units[i]] > capacity:
             value_sum += capacity * units[i] 
             capacity = 0
+            i += 1
+            
 
             
                      
@@ -31,13 +33,13 @@ def get_optimal_value_0(capacity, weights, values):
 
 
 def get_optimal_value_1(capacity, weights, values):
-   
     units = [values[i]/weights[i] for i in range(len(weights))]
     units_weights_values =  list(zip(units, weights, values))
     units_weights_values.sort(key=lambda x: x[0], reverse= True)
     value_sum = 0
     i = 0
     n = len(units)
+    
 
     while capacity != 0 and i < n:
         unit, weight, value = units_weights_values[i]
@@ -53,11 +55,11 @@ def get_optimal_value_1(capacity, weights, values):
         i += 1
             
                      
-    return value_sum #sum(value_sum)
+    return value_sum 
 
 
 if __name__ == "__main__":
-    data = list(map(int, input().split()))
+    data = list(map(int,  sys.stdin.read().split()))
     n, capacity = data[0:2]
     values = data[2:(2 * n + 2):2]
     weights = data[3:(2 * n + 2):2]
@@ -65,3 +67,6 @@ if __name__ == "__main__":
     opt_value = get_optimal_value_1(capacity, weights, values)
     print("{:.10f}".format(opt_value))
     #print(time()-t0)
+
+
+# Although both functions are the same thing, passess all test cases.
