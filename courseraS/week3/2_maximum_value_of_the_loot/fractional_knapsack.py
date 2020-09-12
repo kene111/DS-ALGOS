@@ -69,4 +69,4 @@ if __name__ == "__main__":
     #print(time()-t0)
 
 
-# Although both functions are the same thing, passess all test cases.
+# Although both functions are the same thing,get_optimal_value_1 passess all test cases and get_optimal_value_0 doesn't.
