@@ -32,12 +32,14 @@ def get_majority_element(a, left, right):  # works but takes up memory.
         
     elif hold <= right/2:
         return -1
+
+
+
 # --------------------------------------------- re-edit count sort algorithm 2 ------------------------------------------------------------------------
 def count_sort_re_1(a): 
     
     count_a = {a_n: 0 for a_n in a}
     
-
     for i in a:
         count_a[i] +=  1
     return count_a
@@ -54,16 +56,14 @@ def get_majority_element_1(a, left, right):
     if left + 1 == right:
         return a[left]
     
-    hold = len(a)
-
     # write your code here
 
     for i in see.keys():
         
-        if see[i] > hold/2:
+        if see[i] > right/2:
             return i
-        elif see[i] <= hold/2:
-            return -1
+    
+    return -1
 
     
     
